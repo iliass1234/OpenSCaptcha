@@ -7,24 +7,29 @@
     <title>captcha</title>
 </head>
 <body>
-    <h1>hello world</h1>
-
 
     <div class="captcha-container">
-        <div class="figure-section">
-            <img class="figure-img" src="./imgs/1.JPG" alt="figure">
+        <div class="initialisation-section">
+            <h3>match the hand to the direction of the object and click submit:</h3>
         </div>
-        <div class="direction-section">
-            <img class="direction-img" src="./imgs/p1.jpg" alt="direction">
-            <div class="btns-container">
-                <div onclick="left()" class="direction-btn">next</div>
-                <div onclick="right()" class="direction-btn">prev</div>
+        <div class="captcha-sections">
+
+            <div class="figure-section">
+                <img class="figure-img" src="./imgs/1.JPG" alt="figure">
+            </div>
+            <div class="direction-section">
+                <img class="direction-img" src="./imgs/p1.jpg" alt="direction">
+                <div class="btns-container">
+                    <button onclick="left()" class="direction-btn">left</button>
+                    <button onclick="right()" class="direction-btn">right</button>
+                </div>
             </div>
         </div>
+
     </div>
     <div class="captcha-validation-container">
-        <div onclick="validate()" class="captcha-validate">validate</div>
-        <div onclick="randomize()" class="captcha-randomize">randomize</div>
+        <button onclick="validate()" class="validation-section-btn">Submit</button>
+        <button onclick="randomize()" class="validation-section-btn captcha-randomize">randomize</button>
     </div>
 
 
