@@ -1,0 +1,67 @@
+.captcha-container{
+    background-color: red;
+    max-height: 400px;
+    max-width: 800px;
+
+    height: 400px;
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.figure-section, .direction-section{
+    height: 90%;
+    width: 45%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.figure-img{
+    height: 100%;
+}
+.direction-img{
+    height: 50%;
+}
+.direction-section .btns-container{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+}
+.direction-section .direction-btn{
+
+    height: 80px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.direction-btn:hover{
+    background-color: rgb(135, 135, 135);
+    cursor: pointer;
+}
+.captcha-validation-container{
+    background-color: green;
+    padding: 30px;
+    box-sizing: border-box;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.captcha-validate, .captcha-randomize{
+    background-color: tomato;
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

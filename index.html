@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>captcha</title>
+</head>
+<body>
+    <h1>hello world</h1>
+
+
+    <div class="captcha-container">
+        <div class="figure-section">
+            <img class="figure-img" src="./imgs/1.JPG" alt="figure">
+        </div>
+        <div class="direction-section">
+            <img class="direction-img" src="./imgs/p1.jpg" alt="direction">
+            <div class="btns-container">
+                <div onclick="left()" class="direction-btn">next</div>
+                <div onclick="right()" class="direction-btn">prev</div>
+            </div>
+        </div>
+    </div>
+    <div class="captcha-validation-container">
+        <div onclick="validate()" class="captcha-validate">validate</div>
+        <div onclick="randomize()" class="captcha-randomize">randomize</div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
