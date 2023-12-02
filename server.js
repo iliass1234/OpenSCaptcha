@@ -68,3 +68,4 @@ function encrypt(textToEncrypt = 'first text') {
   
   const decryptedMessage = decrypt(encryptedData);
   console.log('Decrypted:', decryptedMessage);
+  
