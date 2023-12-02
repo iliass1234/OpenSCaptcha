@@ -1,0 +1,25 @@
+{
+  "name": "captcha-system",
+  "version": "1.0.0",
+  "description": "this system is easy and free to use for everybody",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iliass1234/OpenSCaptcha.git"
+  },
+  "keywords": [
+    "open",
+    "source",
+    "captcha",
+    "system"
+  ],
+  "author": "ilias jabri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iliass1234/OpenSCaptcha/issues"
+  },
+  "homepage": "https://github.com/iliass1234/OpenSCaptcha#readme"
+}
