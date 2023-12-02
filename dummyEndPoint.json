@@ -1,4 +1,4 @@
 {
-    "initDirectionsImgPrefix": "./CaptchaImgs/d",
-    "initFigureImgPrefix": "./CaptchaImgs/c"
+    "initDirectionsImgPrefix": "./CaptchaImgs_hidden/d",
+    "initFigureImgPrefix": "./CaptchaImgs_hidden/c"
 }

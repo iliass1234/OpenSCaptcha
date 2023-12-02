@@ -1,0 +1,10 @@
+{
+    "captcha_figure_imgs_prefixes": [
+        "car", "elephent", "other"
+    ],
+    "captcha_direction_imgs_prefixes": [
+        "hand", "pointer", "other"
+    ],
+    "captcha_great_secret" : "this_is_sparta"
+}
+
