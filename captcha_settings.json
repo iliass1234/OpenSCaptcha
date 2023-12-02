@@ -5,6 +5,7 @@
     "captcha_direction_imgs_prefixes": [
         "hand", "pointer", "other"
     ],
-    "captcha_great_secret" : "this_is_sparta"
+    "captcha_great_secret" : "this_is_sparta",
+    "is_default_captcha_great_secret": true
 }
 
