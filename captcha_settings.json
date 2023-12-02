@@ -1,9 +1,9 @@
 {
     "captcha_figure_imgs_prefixes": [
-        "car", "elephent", "other"
+        "car"
     ],
     "captcha_direction_imgs_prefixes": [
-        "hand", "pointer", "other"
+        "d"
     ],
     "captcha_great_secret" : "1234567812345678",
     "is_default_captcha_great_secret": true,
