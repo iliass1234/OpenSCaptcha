@@ -4,7 +4,7 @@ let $captcha_curr_index = 0;
 
 
 function changeCaptchaDirectionImg(imgPrefix, imgNum){
-    
+    document.querySelector('.captcha-container .direction-img').src = $captcha_direction_img_prefix+imgNum+'.jpg';
 }
 
 function captcha_left(){
