@@ -9,13 +9,13 @@ function putImg(imgElement, name){
     imgElement.src = direction_img.src.replace(/p.\.JPG/i, `${name}.JPG`)
 }
 
-function left(){
+function captcha_left(){
     currentIndex--
     if(currentIndex < 0) currentIndex = 5;
     putImg(direction_img, directions_links[currentIndex]);
 }
 
-function right(){
+function captcha_right(){
     currentIndex++
     if(currentIndex >= 6) currentIndex = 0;
     putImg(direction_img, directions_links[currentIndex]);
@@ -35,11 +35,14 @@ function validate(){
 }
 
 
-function initCaptcha (captchaDiv = 'captcha-container', init_h3_text = 'match the hand to the direction of the object and click submit:'){
+
+function initCaptchaV1 (captchaDiv = 'captcha-root', init_h3_text = 'match the hand to the direction of the object and click submit:'){
+
     let rootDiv = document.getElementById(captchaDiv);
 
 
     // init big containers elements;
+    let captcha_inner_container = document.createElement('div');
     let initialisation_section = document.createElement('div');
     let captcha_section = document.createElement('div');
     let figure_section = document.createElement('div');
@@ -47,8 +50,9 @@ function initCaptcha (captchaDiv = 'captcha-container', init_h3_text = 'match th
     let btns_container = document.createElement('div');
 
     // ======================== adding clases to containers =========
+    captcha_inner_container.classList.add('captcha-container');
     initialisation_section.classList.add('initialisation-section');
-    captcha_section.classList.add('captcha-section');
+    captcha_section.classList.add('captcha-sections');
     figure_section.classList.add('figure-section');
     direction_section.classList.add('direction-section');
     btns_container.classList.add('btns-container');
@@ -66,8 +70,8 @@ function initCaptcha (captchaDiv = 'captcha-container', init_h3_text = 'match th
     let left_btn = document.createElement('button');
     let right_btn = document.createElement('button');
     // =================== adding clases to elements ===============
-    f_s_img.classList.add('figure');
-    d_s_img.classList.add('direction');
+    f_s_img.classList.add('figure-img');
+    d_s_img.classList.add('direction-img');
     left_btn.classList.add('direction-btn');
     left_btn.innerText = 'left';
     right_btn.classList.add('direction-btn');
@@ -77,12 +81,48 @@ function initCaptcha (captchaDiv = 'captcha-container', init_h3_text = 'match th
     // validation section btns;
     let submit_btn = document.createElement('button');
     let randomize_btn = document.createElement('button');
+    submit_btn.innerText = 'Submit';
+    randomize_btn.innerText = 'Randomize';
+    submit_btn.classList.add('validation-section-btn');
+    randomize_btn.classList.add('validation-section-btn');
+
+
+    // adding events ===============================================
+    left_btn.addEventListener('click', captcha_left);
+    right_btn.addEventListener('click', captcha_right);
+
+
+    // adding elements to containers :
+    initialisation_section.appendChild(i_s_h3);
+
+    figure_section.appendChild(f_s_img);
+    btns_container.append(left_btn, right_btn)
+    direction_section.append(d_s_img, btns_container);
+
+
+    captcha_section.append(figure_section, direction_section);
+
+
+    captcha_validation_section.append(submit_btn, randomize_btn);
+    captcha_inner_container.append(initialisation_section, captcha_section);
+
+    rootDiv.append(captcha_inner_container, captcha_validation_section);
+
+    init_imgs();
 
 }
 
-function init_imgs(){
-    let figureImg = document.querySelector('.figure-section figure');
-    let directionImg = document.querySelector('.direction-section direction');
 
-    
+initCaptchaV1();
+
+function init_imgs(){
+    let figureImg = document.querySelector('.figure-section .figure-img');
+    let directionImg = document.querySelector('.direction-section .direction-img');
+
+    fetch('../dummyEndPoint.json')
+    .then(res => res.json())
+    .then(data => {
+        directionImg.src = data.initDirectionsImg;
+        figureImg.src = data.initFigureImg;
+    });
 }
