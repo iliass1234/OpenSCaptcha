@@ -2,16 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const encryption = require('./encryption');
 
-function copyFileByName(fileName, fileDir = 'captchaImgs_hidden'){
+function copyFileByName(fileName, fileDir = 'captchaImgs_hidden', fileDestination = 'captchaImgsEnc'){
 
-    
-    console.log('from encryptImgs file: ');
-    let eh = encryption.encrypt('hello this from the file');
-    let data = encryption.decrypt(eh);
-    console.log(data);
+    if(!fileName) return;
 
-    // fs.writeFileSync(path.join(__dirname, 'captchaImgsEnc', fileName),)
+    let encImgName = encryption.encrypt(fileName);
+
+    let buffer = fs.readFileSync(path.join(__dirname, fileDir, fileName));
+    fs.writeFileSync(path.join(__dirname, fileDestination, encImgName.encryptedText+'.jpg'), buffer, 'base64');
 }
 
 
-module.exports = {copyFileByName: (fileName)=>{ copyFileByName(fileName)}}
+module.exports = {copyFileByName: copyFileByName}

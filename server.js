@@ -37,4 +37,4 @@ const encryption = require('./encryption');
 console.log(encryption);
 
 const test = require('./encryptFigureImgs');
-test.copyFileByName('hello');
+test.copyFileByName('d1.jpg');
