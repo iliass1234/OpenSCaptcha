@@ -2,6 +2,8 @@ let $captcha_direction_img_prefix = null;
 let $captcha_figure_img_prefix = null;
 let $captcha_curr_index = 0;
 
+let $captcha_figure_imgs_list = [];
+
 
 function changeCaptchaDirectionImg(imgPrefix, imgNum){
     document.querySelector('.captcha-container .direction-img').src = $captcha_direction_img_prefix+imgNum+'.jpg';
@@ -116,7 +118,7 @@ function init_imgs(){
     let figureImg = document.querySelector('.figure-section .figure-img');
     let directionImg = document.querySelector('.direction-section .direction-img');
 
-    let randImgNum1 = Math.round(Math.random() * 5);
+    let randImgNum1 = 5 ;// Math.round(Math.random() * 5);
     let randImgNum2 = Math.round(Math.random() * 5);
 
     $captcha_curr_index = randImgNum1;
@@ -126,9 +128,9 @@ function init_imgs(){
     .then(data => {
 
         $captcha_direction_img_prefix = data.initDirectionsImgPrefix;
-        $captcha_figure_img_prefix = data.initFigureImgPrefix;
+        $captcha_figure_imgs_list = data.initFigureImgsList;
 
         directionImg.src = data.initDirectionsImgPrefix+randImgNum1+'.jpg';
-        figureImg.src = data.initFigureImgPrefix+randImgNum2+'.jpg';
+        figureImg.src = data.initFigureImgsPath + data.initFigureImgsList[randImgNum2]+'.jpg';
     });
 }

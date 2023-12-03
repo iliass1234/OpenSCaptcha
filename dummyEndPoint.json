@@ -1,4 +1,7 @@
 {
-    "initDirectionsImgPrefix": "./CaptchaImgs_hidden/d",
-    "initFigureImgPrefix": "./CaptchaImgs_hidden/car"
+    "initDirectionsImgPrefix": "./CaptchaImgs_hidden/directions/d",
+    "initFigureImgsPath": "./CaptchaImgs_hidden/figures/",
+    "initFigureImgsList": [
+        "car0", "car1", "car2", "car3", "car4", "car5"
+    ]
 }
