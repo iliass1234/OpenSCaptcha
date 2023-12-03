@@ -5,6 +5,13 @@
     "captcha_direction_imgs_prefixes": [
         "d"
     ],
+    "rawCaptchaImgsDir": "captchaImgs_hidden",
+    "rawCaptchaImgsDirFigures": "figures",
+    "rawCaptchaImgsDirDirections": "directions",
+
+    "publicCaptchaImgsDir": "captchaImgsEnc",
+    "publicCaptchaImgsDirFigures": "figures",
+    "publicCaptchaImgsDirDirections": "directions",
     "captcha_great_secret" : "1234567812345678",
     "is_default_captcha_great_secret": true,
     "cipher_iv": "19d92ec3a689e7d41771a5367643b6e3"

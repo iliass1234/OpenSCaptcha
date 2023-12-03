@@ -80,11 +80,8 @@ function initCaptchaV1 (captchaDiv = 'captcha-root', init_h3_text = 'match the h
 
     // validation section btns;
     let submit_btn = document.createElement('button');
-    let randomize_btn = document.createElement('button');
     submit_btn.innerText = 'Submit';
-    randomize_btn.innerText = 'Randomize';
     submit_btn.classList.add('validation-section-btn');
-    randomize_btn.classList.add('validation-section-btn');
 
 
     // adding events ===============================================
@@ -103,7 +100,7 @@ function initCaptchaV1 (captchaDiv = 'captcha-root', init_h3_text = 'match the h
     captcha_section.append(figure_section, direction_section);
 
 
-    captcha_validation_section.append(submit_btn, randomize_btn);
+    captcha_validation_section.append(submit_btn);
     captcha_inner_container.append(initialisation_section, captcha_section);
 
     rootDiv.append(captcha_inner_container, captcha_validation_section);
