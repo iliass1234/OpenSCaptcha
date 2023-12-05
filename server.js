@@ -33,11 +33,14 @@ const captchaImgsEnc = require('./encryptFigureImgs');
 
 const scheduler = require('./scheduler.js');
 
-function clg1(){
-    console.log('working scheduler');
-}
-function clg2(){
-    console.log('working scheduler second method');
-}
+captchaImgsEnc.reEncrypt_EVERYTHING();
 
-scheduler({clg1, clg2});
+
+
+// function clg1(){
+//     console.log('working scheduler');
+// }
+
+
+
+// scheduler({clg1});

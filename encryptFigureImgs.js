@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const encryption = require('./encryption');
 const captchaSettingsJson = require('./captcha_settings.json');
+const utilityFunctions = require('./utilityFunctions');
 
 function getImgsNamesListBeforeEnc(subDir = 'figures'){
 
@@ -68,4 +69,36 @@ function copyAllWithEncreption(){
 
 
 
-module.exports = {encryptAllCaptchaImgs: copyAllWithEncreption, deletePublicCaptchaImgs: deletePublicCaptchaImgs};
+function reEncrypt_or_encrypt_all_Imgs(){
+    try{
+        deletePublicCaptchaImgs();
+        copyAllWithEncreption()
+    }catch(err){
+        let errMessage = 'something bad happend while re-encryting captcha images: \n' + String(err);
+        throw(errMessage);
+    }
+}
+
+
+function reEncrypt_EVERYTHING(){
+
+    let encreptedSecretObj = encryption.encrypt(captchaSettingsJson.captcha_great_secret);
+    let encreptedSecretStr16 = encreptedSecretObj.encryptedText.slice(0, 16);
+
+    captchaSettingsJson.captcha_great_secret = encreptedSecretStr16;
+    captchaSettingsJson.cipher_iv = encreptedSecretObj.iv;
+
+    console.log(encreptedSecretStr16);
+    utilityFunctions.setCaptcha_settings_json_file(captchaSettingsJson);
+
+    try{
+        deletePublicCaptchaImgs();
+        copyAllWithEncreption()
+    }catch(err){
+        let errMessage = 'something bad happend while re-encryting captcha images: \n' + String(err);
+        throw(errMessage);
+    }
+}
+
+
+module.exports = {encryptAllCaptchaImgs: copyAllWithEncreption, deletePublicCaptchaImgs: deletePublicCaptchaImgs, reEncrypt_EVERYTHING};
