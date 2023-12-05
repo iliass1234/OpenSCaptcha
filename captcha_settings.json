@@ -12,7 +12,8 @@
     "publicCaptchaImgsDir": "captchaImgsEnc",
     "publicCaptchaImgsDirFigures": "figures",
     "publicCaptchaImgsDirDirections": "directions",
-    "captcha_great_secret" : "1234567812345678",
+    "captcha_great_secret" : "1234567812789678",
     "is_default_captcha_great_secret": true,
-    "cipher_iv": "19d92ec3a689e7d41771a5367643b6e3"
+    "cipher_iv": "19d92ec3a689e7d41771a5367643b6e3",
+    "encryptionSchedulerTime": "{$days$: 0, $hours$: 0, $minutes$: 0, $seconds$: 5}"
 }

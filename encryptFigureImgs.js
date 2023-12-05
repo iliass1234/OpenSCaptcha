@@ -21,7 +21,6 @@ function copyFileByName(fileName, imgkind){
 
 
 
-
     if (imgKindDir === null || publicImgKindDir === null) return;
 
     let rawFileDir = path.join(__dirname, captchaSettingsJson.rawCaptchaImgsDir, imgKindDir);
@@ -32,7 +31,24 @@ function copyFileByName(fileName, imgkind){
 
 }
 
+function deletePublicCaptchaImgs () {
+    let pDirectionsImgsPath = path.join(__dirname, captchaSettingsJson.publicCaptchaImgsDir, captchaSettingsJson.publicCaptchaImgsDirDirections);
+    let pFiguresImgsPath = path.join(__dirname, captchaSettingsJson.publicCaptchaImgsDir, captchaSettingsJson.publicCaptchaImgsDirFigures)
 
+    let directionsImgs = fs.readdirSync(pDirectionsImgsPath);
+    let figuresImgs = fs.readdirSync(pFiguresImgsPath);
+
+    directionsImgs.forEach(img => {
+        fs.rmSync(path.join(pDirectionsImgsPath, img));
+    })
+
+    figuresImgs.forEach(img => {
+        fs.rmSync(path.join(pFiguresImgsPath, img));
+    })
+
+
+    console.log(directionsImgs);
+}
 
 
 
@@ -52,4 +68,4 @@ function copyAllWithEncreption(){
 
 
 
-module.exports = {encryptAllCaptchaImgs: copyAllWithEncreption};
+module.exports = {encryptAllCaptchaImgs: copyAllWithEncreption, deletePublicCaptchaImgs: deletePublicCaptchaImgs};

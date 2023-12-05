@@ -8,14 +8,9 @@ let app = express();
 
 const expressPort = 3000;
 
-let iv = crypto.randomBytes(16);
-let secretMessage = 'hello ilias';
-let key = '12345678123456781234567812345678';
-
-
 
 app.get('/', (req, res)=>{
-    res.send('<h1>working express</h1>');
+    res.send('<h1>Captcha system by ilias jabri <br> github.com/iliass1234</h1>');
 })
 
 app.get('/figure_directions_list', (req, res) => {
@@ -32,10 +27,17 @@ app.listen(expressPort, ()=>{
 });
 
 
-const encryption = require('./encryption');
-
-console.log(encryption);
-
-
 const captchaImgsEnc = require('./encryptFigureImgs');
-captchaImgsEnc.encryptAllCaptchaImgs();
+// captchaImgsEnc.encryptAllCaptchaImgs();
+// captchaImgsEnc.deletePublicCaptchaImgs();
+
+const scheduler = require('./scheduler.js');
+
+function clg1(){
+    console.log('working scheduler');
+}
+function clg2(){
+    console.log('working scheduler second method');
+}
+
+scheduler({clg1, clg2});
