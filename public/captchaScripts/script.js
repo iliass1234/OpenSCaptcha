@@ -87,6 +87,7 @@ function initCaptchaV1 (captchaDiv = 'captcha-root', init_h3_text = 'match the h
     // adding events ===============================================
     left_btn.addEventListener('click', captcha_left);
     right_btn.addEventListener('click', captcha_right);
+    submit_btn.addEventListener('click', submitButtonHandler);
 
 
     // adding elements to containers :
@@ -108,6 +109,15 @@ function initCaptchaV1 (captchaDiv = 'captcha-root', init_h3_text = 'match the h
     init_imgs();
 }
 
+function submitButtonHandler(){
+    fetch('http://127.0.0.1:3000/check_captcha', {
+        method: 'POST', 
+        body: JSON.stringify({firstImg: 'hello.jpg', secondImg: 'welcome.jpg'}),
+        mode: 'cors'    
+    }).then(res => res.json())
+    .then(data => console.log(data))
+}
+
 
 initCaptchaV1();
 
@@ -120,7 +130,7 @@ function init_imgs(){
 
     $captcha_curr_index = randImgNum1;
 
-    fetch('../dummyEndPoint.json')
+    fetch('../../dummyEndPoint.json')
     .then(res => res.json())
     .then(data => {
 

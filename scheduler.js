@@ -12,8 +12,9 @@ function getDefaultSchedulerTime (){
         throw (err)
         throw('something wrong in encryption scheduler time in captcha_settings.json the nested time json should follow the pattern : {$days$: d, $hours$: h, $minutes$: m, $seconds$: s}');
     }
-
 }
+
+
 
 const defaultSchedulerTime = getDefaultSchedulerTime();
 

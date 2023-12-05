@@ -1,15 +1,20 @@
 const express = require('express');
 const crypto = require('crypto');
+const path = require('path');
 const captcha_settings_json = require('./captcha_settings.json');
+const functions = require('./apiFunctions.js');
+
 
 
 let app = express();
 
 const expressPort = 3000;
 
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res)=>{
-    res.send('<h1>Captcha system by ilias jabri <br> github.com/iliass1234</h1>');
+    res.render('./index.html')
 })
 
 app.get('/figure_directions_list', (req, res) => {
@@ -25,6 +30,23 @@ app.listen(expressPort, ()=>{
     console.log('running on port', expressPort);
 });
 
+app.post('/check_captcha', (req, res)=>{
+    let data = req.body;
+    if(functions.checkCaptchaValidation(data.firstImg, data.secondImg)){
+        console.log('true check');
+        res.json({success: true});
+    }else{
+        console.log('false check');
+        res.json({success: false});
+    }
+});
+
+
+app.post('/next_challenge', (req, res) => {
+
+})
+
+
 
 const captchaImgsEnc = require('./encryptFigureImgs');
 // captchaImgsEnc.encryptAllCaptchaImgs();
@@ -32,7 +54,7 @@ const captchaImgsEnc = require('./encryptFigureImgs');
 
 const scheduler = require('./scheduler.js');
 
-captchaImgsEnc.ENCRYPT_EVERYTHING();
+// captchaImgsEnc.ENCRYPT_EVERYTHING();
 
 
 

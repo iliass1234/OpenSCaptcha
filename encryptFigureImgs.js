@@ -3,6 +3,7 @@ const path = require('path');
 const encryption = require('./encryption');
 const captchaSettingsJson = require('./captcha_settings.json');
 const utilityFunctions = require('./utilityFunctions');
+const crypto = require('crypto');
 
 function getImgsNamesListBeforeEnc(subDir = 'figures'){
 
@@ -86,7 +87,7 @@ function ENCRYPT_EVERYTHING(){
     let encreptedSecretStr16 = encreptedSecretObj.encryptedText.slice(0, 16);
 
     captchaSettingsJson.captcha_great_secret = encreptedSecretStr16;
-    captchaSettingsJson.cipher_iv = encreptedSecretObj.iv;
+    captchaSettingsJson.cipher_iv =crypto.randomBytes(16).toString('hex');
 
     console.log(encreptedSecretStr16);
     utilityFunctions.setCaptcha_settings_json_file(captchaSettingsJson);
