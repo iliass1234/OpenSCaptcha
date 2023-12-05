@@ -80,7 +80,7 @@ function reEncrypt_or_encrypt_all_Imgs(){
 }
 
 
-function reEncrypt_EVERYTHING(){
+function ENCRYPT_EVERYTHING(){
 
     let encreptedSecretObj = encryption.encrypt(captchaSettingsJson.captcha_great_secret);
     let encreptedSecretStr16 = encreptedSecretObj.encryptedText.slice(0, 16);
@@ -101,4 +101,4 @@ function reEncrypt_EVERYTHING(){
 }
 
 
-module.exports = {encryptAllCaptchaImgs: copyAllWithEncreption, deletePublicCaptchaImgs: deletePublicCaptchaImgs, reEncrypt_EVERYTHING};
+module.exports = {encryptAllCaptchaImgs: copyAllWithEncreption, deletePublicCaptchaImgs: deletePublicCaptchaImgs, ENCRYPT_EVERYTHING};

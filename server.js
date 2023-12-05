@@ -1,6 +1,5 @@
 const express = require('express');
 const crypto = require('crypto');
-const { buffer } = require('stream/consumers');
 const captcha_settings_json = require('./captcha_settings.json');
 
 
@@ -33,7 +32,7 @@ const captchaImgsEnc = require('./encryptFigureImgs');
 
 const scheduler = require('./scheduler.js');
 
-captchaImgsEnc.reEncrypt_EVERYTHING();
+captchaImgsEnc.ENCRYPT_EVERYTHING();
 
 
 
@@ -43,4 +42,4 @@ captchaImgsEnc.reEncrypt_EVERYTHING();
 
 
 
-// scheduler({clg1});
+scheduler({encryptall: captchaImgsEnc.ENCRYPT_EVERYTHING});
